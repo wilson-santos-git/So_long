@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bcarreir <bcarreir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wteles-d <wteles-d@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 16:42:24 by wteles-d          #+#    #+#             */
-/*   Updated: 2023/12/08 18:12:03 by bcarreir         ###   ########.fr       */
+/*   Updated: 2023/12/09 21:53:38 by wteles-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,32 +76,32 @@ typedef struct game_objects {
 	t_player	player;
 }					t_game;
 
+char	*ft_strdup(const char *s);
 size_t	ft_strlen(const char *str);
 char	**ft_split(char const *s, char c);
-char	*ft_strdup(const char *s);
+char	*ft_strrchr(const char *s, int c);
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
-char	*ft_strrchr(const char *s, int c);
 
 t_door		init_exit(void);
 t_player	init_player(void);
 void		init_images(t_game *game, int size);
-char	*read_loop(t_map *map, int i, int fd);
+char		*read_loop(t_map *map, int i, int fd);
 
 void	free_mtx(char **mtx);
-char	**dup_map_mtx(char **mtx);
 int		win_exit(t_game *game);
 void	find_objs(t_game *game);
 void	open_exit(t_game *game);
 bool	check_map(t_game *game);
 void	display_map(t_game *game);
 void	collect_egg(t_game *game);
+char	**dup_map_mtx(char **mtx);
 void	update(t_game *game, int keycode);
-bool	validate_map(t_game *g, char *map_file);
 int		key_press(int keycode, t_game *game);
 void	check_exit(t_game *game, int keycode);
 void	free_map(t_game *game, bool free_imgs);
+bool	validate_map(t_game *g, char *map_file);
 void	check_new_position(t_game *game, int keycode);
 bool	find_game_path(char **mtx, int player_x, int player_y);
 

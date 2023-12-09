@@ -1,5 +1,5 @@
 *.o
 mlx/*.o
 gnl/*.o
-ft_printf/*.o
 so_long
+ft_printf/*.o
