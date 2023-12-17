@@ -6,33 +6,31 @@
 /*   By: wteles-d <wteles-d@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:05:27 by wteles-d          #+#    #+#             */
-/*   Updated: 2023/12/09 21:52:43 by wteles-d         ###   ########.fr       */
+/*   Updated: 2023/12/17 01:29:29 by wteles-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static bool is_rectangular(t_map map)
+static bool	is_rectangular(t_map map)
 {
-	size_t w;
-	size_t h;
+	size_t	w;
+	size_t	h;
 
 	w = ft_strlen(map.mtx[0]);
 	h = 0;
 	while (map.mtx[h])
 		if (ft_strlen(map.mtx[h++]) != w)
 			return (false);
-	ft_printf("passa1\n");
 	return (h != w);
 }
 
-static bool is_enclosed(t_map map)
+static bool	is_enclosed(t_map map)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
-	ft_printf("height %d\n", map.height);
 	while (map.mtx[i])
 	{
 		if (map.mtx[i][0] != '1' || map.mtx[i][map.width - 1] != '1')
@@ -46,15 +44,14 @@ static bool is_enclosed(t_map map)
 		}
 		i++;
 	}
-	ft_printf("passa2\n");
 	return (true);
 }
 
-static bool find_chars(char *map_str)
+static bool	find_chars(char *map_str)
 {
-	int i;
-	int exit_count;
-	int player_count;
+	int	i;
+	int	exit_count;
+	int	player_count;
 
 	if (ft_strrchr(map_str, '1') && ft_strrchr(map_str, '0') \
 		&& ft_strrchr(map_str, 'C') && ft_strrchr(map_str, 'E') \
@@ -71,16 +68,15 @@ static bool find_chars(char *map_str)
 				exit_count++;
 			i++;
 		}
-		ft_printf("couve %d\n", player_count == 1 && exit_count == 1);
 		return (player_count == 1 && exit_count == 1);
 	}
 	return (false);
 }
 
-static void get_map(t_game *g, char *map_file, char **map_str)
+static void	get_map(t_game *g, char *map_file, char **map_str)
 {
-	int		i;
-	int		fd;
+	int	i;
+	int	fd;
 
 	i = 0;
 	g->map.eggs = 0;
@@ -101,11 +97,11 @@ static void get_map(t_game *g, char *map_file, char **map_str)
 	g->map.height = i;
 }
 
-bool validate_map(t_game *g, char *map_file)
+bool	validate_map(t_game *g, char *map_file)
 {
-	char *tmp;
-	char **dup_mtx;
-	bool has_valid_path;
+	char	*tmp;
+	char	**dup_mtx;
+	bool	has_valid_path;
 
 	has_valid_path = false;
 	tmp = ft_strrchr(map_file, '.');
@@ -125,7 +121,7 @@ bool validate_map(t_game *g, char *map_file)
 			return (has_valid_path);
 		}
 		free(tmp);
+		free_map(g, false);	
 	}
-	free_map(g, false);
 	return (false);
 }

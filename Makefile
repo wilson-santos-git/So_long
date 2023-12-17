@@ -6,7 +6,7 @@
 #    By: wteles-d <wteles-d@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/21 16:41:58 by wteles-d          #+#    #+#              #
-#    Updated: 2023/12/09 21:52:32 by wteles-d         ###   ########.fr        #
+#    Updated: 2023/12/17 01:27:34 by wteles-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRCS = exit.c inits.c inputs.c libft_utils.c libft_utils2.c main.c map_check.c m
 
 OBJS = $(SRCS:.c=.o)
 
-CC = gcc
+CC = cc
 
 GNL = gnl/gnl.a
 

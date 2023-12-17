@@ -6,7 +6,7 @@
 /*   By: wteles-d <wteles-d@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 19:47:25 by wteles-d          #+#    #+#             */
-/*   Updated: 2023/12/09 21:52:06 by wteles-d         ###   ########.fr       */
+/*   Updated: 2023/12/17 01:29:43 by wteles-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ void	init_images(t_game *game, int size)
 		"imgs/Exit_Close.xpm", &size, &size);
 }
 
-t_player	init_player(void)
+t_play	init_player(void)
 {
-	t_player	player;
+	t_play	player;
 
 	player.x = 0;
 	player.y = 0;

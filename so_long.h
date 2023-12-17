@@ -6,7 +6,7 @@
 /*   By: wteles-d <wteles-d@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 16:42:24 by wteles-d          #+#    #+#             */
-/*   Updated: 2023/12/09 21:53:38 by wteles-d         ###   ########.fr       */
+/*   Updated: 2023/12/17 01:27:59 by wteles-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ typedef struct player_vars {
 	int		x;
 	int		y;
 	int		moves;
-}					t_player;
+}					t_play;
 
 typedef struct exit_vars {
 	int		x;
@@ -73,7 +73,7 @@ typedef struct game_objects {
 	t_map		map;
 	t_mlx		mlx;
 	t_door		exit;
-	t_player	player;
+	t_play	player;
 }					t_game;
 
 char	*ft_strdup(const char *s);
@@ -84,10 +84,10 @@ char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
-t_door		init_exit(void);
-t_player	init_player(void);
-void		init_images(t_game *game, int size);
-char		*read_loop(t_map *map, int i, int fd);
+t_door	init_exit(void);
+t_play	init_player(void);
+void	init_images(t_game *game, int size);
+char	*read_loop(t_map *map, int i, int fd);
 
 void	free_mtx(char **mtx);
 int		win_exit(t_game *game);

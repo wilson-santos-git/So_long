@@ -6,7 +6,7 @@
 #    By: wteles-d <wteles-d@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 21:27:26 by wteles-d          #+#    #+#              #
-#    Updated: 2023/11/10 16:01:43 by wteles-d         ###   ########.fr        #
+#    Updated: 2023/12/17 01:27:32 by wteles-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRCS = 		 	get_next_line.c\
 				
 OBJS =	$(SRCS:.c=.o)
 
-CC = gcc
+CC = cc
 
 CFLAGS = -Wall -Werror -Wextra
 

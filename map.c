@@ -6,7 +6,7 @@
 /*   By: wteles-d <wteles-d@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 16:43:28 by wteles-d          #+#    #+#             */
-/*   Updated: 2023/12/09 21:52:35 by wteles-d         ###   ########.fr       */
+/*   Updated: 2023/12/17 01:31:49 by wteles-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	display_map(t_game *game)
 	i = 0;
 	while (game->map.mtx[i])
 	{
-		ft_printf("%s\n", game->map.mtx[i]);
 		j = 0;
 		while (game->map.mtx[i][j])
 		{
