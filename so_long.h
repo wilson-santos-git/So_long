@@ -6,7 +6,7 @@
 /*   By: wteles-d <wteles-d@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 16:42:24 by wteles-d          #+#    #+#             */
-/*   Updated: 2023/12/17 01:27:59 by wteles-d         ###   ########.fr       */
+/*   Updated: 2024/01/12 17:25:40 by wteles-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ bool	check_map(t_game *game);
 void	display_map(t_game *game);
 void	collect_egg(t_game *game);
 char	**dup_map_mtx(char **mtx);
+bool	check_newlines(char *str);
+bool	is_chars_valid(char *map_str);
 void	update(t_game *game, int keycode);
 int		key_press(int keycode, t_game *game);
 void	check_exit(t_game *game, int keycode);

@@ -6,7 +6,7 @@
 /*   By: wteles-d <wteles-d@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 16:43:28 by wteles-d          #+#    #+#             */
-/*   Updated: 2023/12/17 01:31:49 by wteles-d         ###   ########.fr       */
+/*   Updated: 2024/01/12 17:41:46 by wteles-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,4 +104,20 @@ char	*read_loop(t_map *map, int i, int fd)
 		free(s1);
 	}
 	return (temp_str);
+}
+
+bool	check_newlines(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (str[0] == '\n')
+		return (false);
+	while (str[i])
+	{
+		if ((str[i] == '\n') && (str[i + 1] == '\n'))
+			return (false);
+		i++;
+	}
+	return (true);
 }

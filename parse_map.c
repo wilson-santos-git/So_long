@@ -6,7 +6,7 @@
 /*   By: wteles-d <wteles-d@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:05:27 by wteles-d          #+#    #+#             */
-/*   Updated: 2023/12/17 01:29:29 by wteles-d         ###   ########.fr       */
+/*   Updated: 2024/01/12 17:35:33 by wteles-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ static void	get_map(t_game *g, char *map_file, char **map_str)
 	g->map.eggs = 0;
 	g->map.width = 0;
 	g->map.height = 0;
-	g->map.mtx = NULL;
 	fd = open(map_file, O_RDONLY);
 	if (fd < 0)
 	{
@@ -91,6 +90,12 @@ static void	get_map(t_game *g, char *map_file, char **map_str)
 	}
 	*map_str = read_loop(&g->map, i, fd);
 	close (fd);
+	if (!check_newlines(*map_str))
+	{
+		ft_printf("Error\nInvalid map\n");
+		free(*map_str);
+		exit (1);
+	}
 	g->map.mtx = ft_split(*map_str, '\n');
 	while (g->map.mtx[i])
 		i++;
@@ -109,7 +114,7 @@ bool	validate_map(t_game *g, char *map_file)
 	{
 		get_map(g, map_file, &tmp);
 		if (find_chars(tmp) && is_rectangular(g->map) \
-			&& is_enclosed(g->map))
+			&& is_enclosed(g->map) && is_chars_valid(tmp))
 		{
 			free(tmp);
 			g->player = init_player();
@@ -121,7 +126,7 @@ bool	validate_map(t_game *g, char *map_file)
 			return (has_valid_path);
 		}
 		free(tmp);
-		free_map(g, false);	
+		free_map(g, false);
 	}
 	return (false);
 }

@@ -6,7 +6,7 @@
 /*   By: wteles-d <wteles-d@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:05:27 by wteles-d          #+#    #+#             */
-/*   Updated: 2023/12/09 21:52:40 by wteles-d         ###   ########.fr       */
+/*   Updated: 2024/01/10 15:56:29 by wteles-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,20 @@ char **dup_map_mtx(char **mtx)
 	}
 	dup[i] = NULL;
 	return (dup);
+}
+
+bool	is_chars_valid(char *map_str)
+{
+	int	i;
+	
+	i = 0;
+	while (map_str[i])
+	{
+		if (map_str[i] != '1' && map_str[i] != 'C'
+			&& map_str[i] != 'P' && map_str[i] != 'E'
+			&& map_str[i] != '0' && map_str[i] != '\n')
+			return (false);
+		i++;
+	}
+	return (true);
 }
